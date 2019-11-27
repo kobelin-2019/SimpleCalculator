@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		2E50E33C238D52A7004B8AFF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E50E33B238D52A7004B8AFF /* Main.storyboard */; };
-		2E50E3CD238EA6BC004B8AFF /* backGround.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E50E3CC238EA6BC004B8AFF /* backGround.jpg */; };
 		D62AD2DB215CCFDC002D3295 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D62AD2DA215CCFDC002D3295 /* AppDelegate.m */; };
 		D62AD2DE215CCFDC002D3295 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D62AD2DD215CCFDC002D3295 /* ViewController.m */; };
 		D62AD2E6215CCFDE002D3295 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D62AD2E4215CCFDE002D3295 /* LaunchScreen.storyboard */; };
@@ -19,7 +18,6 @@
 
 /* Begin PBXFileReference section */
 		2E50E33B238D52A7004B8AFF /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		2E50E3CC238EA6BC004B8AFF /* backGround.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = backGround.jpg; path = ../../../../Desktop/backGround.jpg; sourceTree = "<group>"; };
 		D62AD2D6215CCFDC002D3295 /* Calculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Calculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D62AD2D9215CCFDC002D3295 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		D62AD2DA215CCFDC002D3295 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -64,7 +62,6 @@
 		D62AD2D8215CCFDC002D3295 /* Calculator */ = {
 			isa = PBXGroup;
 			children = (
-				2E50E3CC238EA6BC004B8AFF /* backGround.jpg */,
 				D62AD2F3215CD0D9002D3295 /* Application */,
 				D62AD2F2215CD0CB002D3295 /* Models */,
 				D62AD2F1215CD08B002D3295 /* View */,
@@ -171,7 +168,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				2E50E33C238D52A7004B8AFF /* Main.storyboard in Resources */,
-				2E50E3CD238EA6BC004B8AFF /* backGround.jpg in Resources */,
 				D62AD2E6215CCFDE002D3295 /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

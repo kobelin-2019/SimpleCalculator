@@ -174,6 +174,7 @@
         self.history.tag = 118;
         [self.history setTitle:@"历史" forState:UIControlStateNormal];
         [self addSubview:self.history];
+        [self.returnHome setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         
         
         //returnHome
@@ -208,6 +209,7 @@
             button.layer.cornerRadius = 5.0;
             
         }
+        [self.returnHome setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
          //历史历史历史
         
     }
