@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "GroupShadowTableView.h"
 @interface CalculatorView : UIView
 @property(nonatomic) UITextView *textView;
 @property(nonatomic, strong) UITextField *textField;
@@ -31,7 +31,7 @@
 @property(nonatomic, strong) UIButton *button8;
 @property(nonatomic, strong) UIButton *button9;
 @property(nonatomic, strong) UIButton *history;
-@property(nonatomic, strong) UITableView *historyTable;
+@property(nonatomic, strong) GroupShadowTableView *historyTable;
 @property(nonatomic, strong) NSMutableArray *array;
 @property(nonatomic, strong) UIButton *returnHome;
 //插入历史记录

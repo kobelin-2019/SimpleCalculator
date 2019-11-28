@@ -7,8 +7,8 @@
 //
 
 #import "CalculatorView.h"
-
-@interface CalculatorView () <UITableViewDelegate, UITableViewDataSource>
+#import "GroupShadowTableView.h"
+@interface CalculatorView () <GroupShadowTableViewDelegate, GroupShadowTableViewDataSource>
     
 @end
 
@@ -23,19 +23,29 @@
         
     //    历史历史历史
        // self.historyTable = [[UITableView alloc]initWithFrame:CGRectMake(18, 720, 400, 163) style:UITableViewStyleGrouped];
-         self.historyTable = [[UITableView alloc]initWithFrame:CGRectMake(18, 18, self.frame.size.width-18, self.frame.size.height-18) style:UITableViewStyleGrouped];
-       
         
-        [self.historyTable setBackgroundColor:[UIColor blackColor]];
-        UITableView* tbv = self.historyTable;
-        tbv.delegate = self;
-        tbv.dataSource = self;
+        /*
+         self.historyTable = [[GroupShadowTableView alloc]initWithFrame:CGRectMake(18, 18, self.frame.size.width-18, self.frame.size.height-18) style:UITableViewStyleGrouped];
+       */
         
-        //
-        [self addSubview:self.historyTable];
         
-        tbv.sectionIndexBackgroundColor = [UIColor blackColor];
-        tbv.sectionIndexTrackingBackgroundColor = [UIColor blackColor];
+        self.historyTable = [[GroupShadowTableView alloc] initWithFrame:self.bounds style:UITableViewStyleGrouped];
+        self.historyTable.groupShadowDelegate = self;
+        _historyTable.groupShadowDataSource = self;
+        _historyTable.showSeparator = YES;
+        _historyTable.separatorStyle = UITableViewCellSeparatorStyleNone;
+        self.historyTable.backgroundColor = [UIColor whiteColor];
+        [self addSubview:_historyTable];
+//
+//        UITableView* tbv = self.historyTable;
+//        tbv.delegate = self;
+//        tbv.dataSource = self;
+//
+//        //
+//        [self addSubview:self.historyTable];
+//
+//        tbv.sectionIndexBackgroundColor = [UIColor whiteColor];
+//        tbv.sectionIndexTrackingBackgroundColor = [UIColor whiteColor];
        
         //textView
         self.textView = [[UITextView alloc] initWithFrame:CGRectMake(0, 20, 414, 203)];
@@ -209,9 +219,9 @@
             button.layer.cornerRadius = 5.0;
             
         }
-        [self.returnHome setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        [self.returnHome setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
          //历史历史历史
-        
+        [self.returnHome setBackgroundColor:[UIColor whiteColor]];
     }
     return self;
 }
@@ -261,8 +271,7 @@
     self.equalButton.frame = CGRectMake(18+99*2, 637+90, 90, 90);
     self.history.frame = CGRectMake(18+99*3, 637+90, 90, 90);
     
-    [self.returnHome setBackgroundColor:[UIColor blackColor]];
-    self.returnHome.frame = CGRectMake(18+99*3+10,18,40,20);
+    self.returnHome.frame = CGRectMake(18+99*3+10+40,18,40,20);
    // [self.historyTable addSubview:self.returnHome];
     
 }
@@ -286,60 +295,54 @@
 /**
  *  告诉tableView一共有多少组数据,默认为1组
  */
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-     
-    return 1;
-}
- 
-/**
- *  告诉tableView第section组有多少行
- */
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+- (NSInteger)numberOfSectionsInGroupShadowTableView:(GroupShadowTableView *)tableView{
      
     return self.array.count;
 }
  
 /**
- *  告诉tableView第indexPath行显示怎样的cell
+ *  告诉tableView第section组有多少行
  */
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    // 0.重用标识
-    // 被static修饰的局部变量：只会初始化一次，在整个程序运行过程中，只有一份内存
-    static NSString *ID = @"cell";
+- (NSInteger)groupShadowTableView:(GroupShadowTableView *)tableView numberOfRowsInSection:(NSInteger)section{
      
-    // 1.先根据cell的标识去缓存池中查找可循环利用的cell
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
-     
-    // 2.如果cell为nil（缓存池找不到对应的cell）
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ID];
-    }
-    // 3.覆盖数据
-    NSString *calText = [self.array objectAtIndex:indexPath.row];
-    cell.textLabel.text = [NSString stringWithFormat:@"%@", calText];
-    cell.contentView.backgroundColor = [UIColor blackColor];
-    cell.textLabel.textColor = [UIColor whiteColor];
-    
-    
-    return cell;
+    return 1;
 }
  
 /**
- *  告诉tableView第section组的头部标题
+ *  告诉tableView第indexPath行显示怎样的cell
  */
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
+- (UITableViewCell *)groupShadowTableView:(GroupShadowTableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    // 0.重用标识
+    // 被static修饰的局部变量：只会初始化一次，在整个程序运行过程中，只有一份内存
      
-    return @"";
+    // 1.先根据cell的标识去缓存池中查找可循环利用的cell
+      UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cellcell"];
+     
+      
+     
+    // 2.如果cell为nil（缓存池找不到对应的cell）
+     if (!cell) {
+             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"cellcell"];
+         }
+    // 3.覆盖数据
+    NSString *calText = [self.array objectAtIndex:(indexPath.section)];
+    cell.textLabel.text = [NSString stringWithFormat:@"%@", calText];
+//    cell.contentView.backgroundColor = [UIColor whiteColor];
+//    cell.textLabel.textColor = [UIColor blackColor];
+//
+    
+    return cell;
+}
+
+- (CGFloat)groupShadowTableView:(GroupShadowTableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 50;
+}
+
+- (void)groupShadowTableView:(GroupShadowTableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
 }
 
 
 
-
-/**
- *  告诉tableView第section组的尾部标题
- */
-- (NSString *)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section{
-     
-    return @"";
-}
 @end

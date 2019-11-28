@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2E50E33C238D52A7004B8AFF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E50E33B238D52A7004B8AFF /* Main.storyboard */; };
+		2E50E3D2238F546C004B8AFF /* GroupShadowTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E50E3D1238F546C004B8AFF /* GroupShadowTableView.m */; };
 		D62AD2DB215CCFDC002D3295 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D62AD2DA215CCFDC002D3295 /* AppDelegate.m */; };
 		D62AD2DE215CCFDC002D3295 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D62AD2DD215CCFDC002D3295 /* ViewController.m */; };
 		D62AD2E6215CCFDE002D3295 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D62AD2E4215CCFDE002D3295 /* LaunchScreen.storyboard */; };
@@ -18,6 +19,8 @@
 
 /* Begin PBXFileReference section */
 		2E50E33B238D52A7004B8AFF /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		2E50E3D0238F5456004B8AFF /* GroupShadowTableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GroupShadowTableView.h; sourceTree = "<group>"; };
+		2E50E3D1238F546C004B8AFF /* GroupShadowTableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GroupShadowTableView.m; sourceTree = "<group>"; };
 		D62AD2D6215CCFDC002D3295 /* Calculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Calculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D62AD2D9215CCFDC002D3295 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		D62AD2DA215CCFDC002D3295 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -43,6 +46,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2E50E3CF238F542E004B8AFF /* GroupShadowTableView */ = {
+			isa = PBXGroup;
+			children = (
+				2E50E3D0238F5456004B8AFF /* GroupShadowTableView.h */,
+				2E50E3D1238F546C004B8AFF /* GroupShadowTableView.m */,
+			);
+			name = GroupShadowTableView;
+			sourceTree = "<group>";
+		};
 		D62AD2CD215CCFDC002D3295 = {
 			isa = PBXGroup;
 			children = (
@@ -86,6 +98,7 @@
 		D62AD2F1215CD08B002D3295 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				2E50E3CF238F542E004B8AFF /* GroupShadowTableView */,
 				D62AD2F4215CEEF9002D3295 /* CalculatorView.h */,
 				D62AD2F5215CEEF9002D3295 /* CalculatorView.m */,
 			);
@@ -182,6 +195,7 @@
 				D62AD2F6215CEEF9002D3295 /* CalculatorView.m in Sources */,
 				D62AD2DE215CCFDC002D3295 /* ViewController.m in Sources */,
 				D62AD2E9215CCFDE002D3295 /* main.m in Sources */,
+				2E50E3D2238F546C004B8AFF /* GroupShadowTableView.m in Sources */,
 				D668931D215E1580008CB173 /* Stack.m in Sources */,
 				D62AD2DB215CCFDC002D3295 /* AppDelegate.m in Sources */,
 			);
